@@ -2,14 +2,8 @@ FROM wb253/nginx-alpine2
 MAINTAINER wangbin <wangbin253@gmail.com>
 
 RUN export PHP_ACTIONS_VER="master" && \
-    export UPLOADPROGRESS_VER="0.1.0" && \
     export XDEBUG_VER="2.4.0" && \
     export WALTER_VER="1.3.0" && \
-    export GO_AWS_S3_VER="v1.0.0" && \
-
-    echo 'http://alpine.gliderlabs.com/alpine/edge/main' > /etc/apk/repositories && \
-    echo 'http://alpine.gliderlabs.com/alpine/edge/community' >> /etc/apk/repositories && \
-    echo 'http://alpine.gliderlabs.com/alpine/edge/testing' >> /etc/apk/repositories && \
 
     # Install common packages
     apk add --update \
@@ -70,7 +64,6 @@ RUN export PHP_ACTIONS_VER="master" && \
         php7-xdebug \
         php7-exif \
         php7-xsl \
-        php7-ldap \
         php7-bcmath \
         php7-memcached \
         && \
