@@ -95,7 +95,7 @@ RUN export PHP_ACTIONS_VER="master" && \
     touch /var/log/php/error.log && \
     touch /var/log/php/fpm-error.log && \
     touch /var/log/php/fpm-slow.log && \
-    chown -R wodby:wodby /var/log/php && \
+    chown -R nginx:nginx /var/log/php && \
 
     # Install uploadprogess extension
     #apk add --update build-base autoconf libtool pcre-dev && \
