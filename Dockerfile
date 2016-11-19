@@ -7,6 +7,8 @@ RUN export PHP_ACTIONS_VER="master" && \
 
     # Install common packages
     apk add --update \
+        --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
+        --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
         openssh \
         git \
         nano \
