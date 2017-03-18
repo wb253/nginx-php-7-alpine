@@ -40,7 +40,6 @@ RUN export PHP_ACTIONS_VER="master" && \
         php7-xml \
         php7-xmlreader \
         php7-ctype \
-        php7-ftp \
         php7-gd \
         php7-json \
         php7-posix \
@@ -69,7 +68,6 @@ RUN export PHP_ACTIONS_VER="master" && \
         php7-exif \
         php7-xsl \
         php7-bcmath \
-        php7-memcached \
         && \
 
     # Create symlinks PHP -> PHP7
@@ -109,6 +107,11 @@ RUN export PHP_ACTIONS_VER="master" && \
     # Remove redis binaries and config
     ls /usr/bin/redis-* | grep -v redis-cli | xargs rm  && \
     rm -f /etc/redis.conf && \
+    
+    wget -qO- https://github.com/mongodb/mongo-php-driver/releases/download/1.2.7/mongodb-1.2.7.tgz  | tar xz -C /tmp/ && \
+    cd /tmp/mongodb-1.2.7 && \
+    phpize && make && make install &&\
+    
 
     # Cleanup
     apk del --purge \
@@ -127,3 +130,7 @@ RUN export PHP_ACTIONS_VER="master" && \
         /tmp/*
 
 COPY rootfs /
+
+EXPOSE 80 443
+USER www
+ENTRYPOINT ["php-fpm"]
