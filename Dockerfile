@@ -110,7 +110,7 @@ RUN export PHP_ACTIONS_VER="master" && \
     
     wget -qO- https://github.com/mongodb/mongo-php-driver/releases/download/1.2.7/mongodb-1.2.7.tgz  | tar xz -C /tmp/ && \
     cd /tmp/mongodb-1.2.7 && \
-    phpize && make && make install &&\
+    phpize && ./configure &&  make && make install &&\
     
 
     # Cleanup
