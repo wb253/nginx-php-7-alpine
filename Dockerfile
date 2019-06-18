@@ -1,4 +1,4 @@
-FROM wb253/nginx-alpine2
+FROM wb253/nginx-alpine
 MAINTAINER wangbin <wangbin253@gmail.com>
 
 RUN export PHP_ACTIONS_VER="master" && \
